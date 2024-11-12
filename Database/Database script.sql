@@ -17,7 +17,7 @@
 #    UNIQUE(email),
 #    UNIQUE(password),
 #	 INDEX (first_name),
-#	 INDEX (last_name),
+#	 INDEX (last_name)
 #);
  
 #CREATE TABLE Schools(
@@ -39,7 +39,7 @@
 #	 class_id INT NOT NULL,
 #    student_id INT NOT NULL,
 #    FOREIGN KEY (class_id) REFERENCES Classes(id) ON DELETE CASCADE,
-#	 FOREIGN KEY (student_id) REFERENCES Users(id) ON DELETE CASCADE
+#	 FOREIGN KEY (student_id) REFERENCES Users(id) ON DELETE CASCADE,
 #    PRIMARY KEY (class_id, student_id)
 #);
 
@@ -49,7 +49,7 @@
 #    teacher_id INT NOT NULL,
 #    school_id INT NOT NULL,
 #	 FOREIGN KEY (teacher_id) REFERENCES USERS(id) ON DELETE CASCADE,
-#	 FOREIGN KEY (school_id) REFERENCES Schools(id) ON DELETE CASCADE
+#	 FOREIGN KEY (school_id) REFERENCES Schools(id) ON DELETE CASCADE,
 #    UNIQUE(name, school_id)
 #);
 
@@ -57,8 +57,7 @@
 #	 course_id INT NOT NULL,
 #    student_id INT NOT NULL,
 #	 FOREIGN KEY (course_id) REFERENCES Courses(id) ON DELETE CASCADE,
-#	 FOREIGN KEY (student_id) REFERENCES Users(id) ON DELETE CASCADE
-
+#	 FOREIGN KEY (student_id) REFERENCES Users(id) ON DELETE CASCADE,
 #    PRIMARY KEY (course_id, student_id)
 #);
 
