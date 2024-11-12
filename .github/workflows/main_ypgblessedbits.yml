@@ -63,7 +63,7 @@ jobs:
 
       - name: Check if app is ready
         run: |
-          url="https://ftservice-c8akcsejgre9fudb.canadacentral-01.azurewebsites.net/actuator/health"
+          url="https://ypgblessedbits.azurewebsites.net/actuator/health"
           echo "Waiting for the app to be up..."
           until curl -s --head --request GET $url | grep "200 OK" > /dev/null; do
             echo "App not ready yet... waiting 10 seconds"
