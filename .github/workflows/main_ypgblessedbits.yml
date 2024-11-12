@@ -19,7 +19,7 @@ jobs:
       - name: Set up Java version
         uses: actions/setup-java@v4
         with:
-          java-version: 'java21'
+          java-version: '21'
           distribution: 'microsoft'
 
       - name: Build with Maven
@@ -60,4 +60,13 @@ jobs:
           app-name: 'ypgblessedbits'
           slot-name: 'Production'
           package: '*.jar'
-          
+
+      - name: Check if app is ready
+        run: |
+          url="https://ftservice-c8akcsejgre9fudb.canadacentral-01.azurewebsites.net/actuator/health"
+          echo "Waiting for the app to be up..."
+          until curl -s --head --request GET $url | grep "200 OK" > /dev/null; do
+            echo "App not ready yet... waiting 10 seconds"
+            sleep 10
+          done
+          echo "App is up and running!"
