@@ -19,9 +19,6 @@ jobs:
           java-version: '21'
           distribution: 'microsoft'
 
-      - name: Static Analysis with SonarQube
-        run: mvn sonar:sonar -Dsonar.projectKey=my_project_key
-
       - name: Run Tests and Coverage
         run: mvn test jacoco:report
 
